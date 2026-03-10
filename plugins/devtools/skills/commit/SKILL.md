@@ -1,6 +1,7 @@
 ---
 name: commit
 description: Automatically generate commits following the Conventional Commits specification
+allowed-tools: Bash(git commit *), Bash(git diff *), Bash(git status *), Bash(git log *), Bash(git show *)
 ---
 
 # Commit Skill
