@@ -26,11 +26,13 @@ Analyzes staged changes and generates a structured, per-file explanation of what
 - **변경 유형**: 수정
 - **변경 내용**: (구체적 설명)
 - **변경 의도**: (추론된 이유)
+- **변경 라인**: L12-L45, L78-L90
 
 ### `path/to/another.ts`
 - **변경 유형**: 추가
 - **변경 내용**: (구체적 설명)
 - **변경 의도**: (추론된 이유)
+- **변경 라인**: L1-L120
 ```
 
 ## Rules
