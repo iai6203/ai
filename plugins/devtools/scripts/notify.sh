@@ -9,10 +9,10 @@ fi
 
 # 디렉토리명과 브랜치명 추출
 CWD=$(echo "$INPUT" | jq -r '.cwd // empty')
-DIR_NAME=$(basename "${CWD:-$(pwd)}")
+REPO_NAME=$(basename "$(git -C "${CWD:-$(pwd)}" rev-parse --show-toplevel 2>/dev/null || echo "${CWD:-$(pwd)}")")
 BRANCH=$(git -C "${CWD:-$(pwd)}" branch --show-current 2>/dev/null || echo "unknown")
 
-MESSAGE="[$DIR_NAME:$BRANCH] 작업이 완료되었습니다"
+MESSAGE="[$REPO_NAME:$BRANCH] 작업이 완료되었습니다"
 TITLE="Claude Code"
 
 case "$(uname -s)" in
