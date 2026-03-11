@@ -9,7 +9,7 @@ fi
 
 # 디렉토리명과 브랜치명 추출
 CWD=$(echo "$INPUT" | jq -r '.cwd // empty')
-REPO_NAME=$(basename "$(git -C "${CWD:-$(pwd)}" rev-parse --show-toplevel 2>/dev/null || echo "${CWD:-$(pwd)}")")
+REPO_NAME=$(git -C "${CWD:-$(pwd)}" remote get-url origin 2>/dev/null | sed 's/.*\///' | sed 's/\.git$//')
 BRANCH=$(git -C "${CWD:-$(pwd)}" branch --show-current 2>/dev/null || echo "unknown")
 
 if [ "$NOTIFY_TYPE" = "notification" ]; then
