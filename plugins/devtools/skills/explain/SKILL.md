@@ -15,11 +15,22 @@ Analyzes staged changes and generates a structured, per-file explanation of what
    - Change type (added/modified/deleted)
    - Summary of changes
    - Inferred intent/reason for the change
-4. Output the per-file summary using the format below
+4. Trace the overall code flow across all changed files to understand how they connect
+5. Output the summary using the format below
 
 ## Output Format
 
 ```
+## 코드 흐름
+
+(변경된 코드들이 전체적으로 어떤 흐름으로 연결되는지 한눈에 파악할 수 있도록 정리)
+
+예시:
+  사용자 요청 → `router.ts` 라우트 핸들러
+    → `service.ts` 비즈니스 로직 처리
+    → `repository.ts` 데이터 조회/저장
+    → `response.ts` 응답 변환
+
 ## 변경 사항 요약
 
 ### `path/to/file.ts`
