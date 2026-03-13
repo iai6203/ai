@@ -51,3 +51,4 @@ Analyzes commits on the current branch and creates a pull request with an auto-g
 - Write type and scope in English; write subject in Korean
 - Use `--fill` flag to auto-populate the PR body from commit messages (compatible with non-interactive environments)
 - Always show the generated title and get user confirmation before creating the PR
+- Do not include `🤖 Generated with [Claude Code](https://claude.com/claude-code)` or any similar auto-generated attribution text in the PR body
