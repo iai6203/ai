@@ -24,7 +24,7 @@ Analyzes commits on the current branch and creates a pull request with an auto-g
 
 5. Show the generated title to the user and ask for confirmation. If the user requests changes, revise accordingly.
 
-6. Run `gh pr create --base <base> --title <title>` and display the resulting PR URL.
+6. Run `gh pr create --base <base> --title "<title>" --fill` and display the resulting PR URL.
 
 ## Title Generation Rules
 
@@ -49,5 +49,6 @@ Analyzes commits on the current branch and creates a pull request with an auto-g
 ## Rules
 
 - Write type and scope in English; write subject in Korean
-- The PR body is delegated to the default behavior of `gh pr create`
+- Use `--fill` flag to auto-populate the PR body from commit messages (compatible with non-interactive environments)
 - Always show the generated title and get user confirmation before creating the PR
+- Do not include `🤖 Generated with [Claude Code](https://claude.com/claude-code)` or any similar auto-generated attribution text in the PR body
