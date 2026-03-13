@@ -21,7 +21,9 @@ plugins/
       │   └── notify.sh            # 크로스 플랫폼 시스템 알림
       └── skills/
           ├── commit/SKILL.md      # /commit 스킬 정의
-          └── explain/SKILL.md     # /explain 스킬 정의
+          ├── explain/SKILL.md     # /explain 스킬 정의
+          ├── pr/SKILL.md          # /pr 스킬 정의
+          └── squash/SKILL.md      # /squash 스킬 정의
 ```
 
 **플러그인 등록:** 사용자의 `.claude/settings.json`에 플러그인 디렉토리 경로를 추가하여 설치한다.
@@ -39,7 +41,15 @@ plugins/
 - `--no-verify` 플래그 사용 금지
 - Co-authored-by 트레일러 추가하지 않음
 
+## 스킬 작성 규칙
+
+- `SKILL.md` 파일은 전체를 영어로 작성한다 (Claude Code가 해석하는 명세이므로)
+- `allowed-tools`에 사용할 도구를 명시한다
+- 사용자 확인이 필요한 스킬(commit, pr, squash)은 실행 전 반드시 확인 단계를 포함한다
+- `--no-verify` 플래그, Co-authored-by 트레일러, 자동 생성 attribution 텍스트를 금지한다
+
 ## 언어 규칙
 
 - 코드, 타입, 식별자: 영문
 - 사용자 대면 메시지, 커밋 메시지 본문, 문서: 한국어
+- SKILL.md 파일: 영문
