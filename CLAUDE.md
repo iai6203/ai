@@ -16,9 +16,10 @@ plugins/
       ├── .claude-plugin/
       │   └── plugin.json          # 플러그인 매니페스트 (이름, 버전, 작성자)
       ├── hooks/
-      │   └── hooks.json           # 이벤트 핸들러 (stop, notification)
+      │   └── hooks.json           # 이벤트 핸들러 (PreToolUse, Stop, Notification)
       ├── scripts/
-      │   └── notify.sh            # 크로스 플랫폼 시스템 알림
+      │   ├── notify.sh            # 크로스 플랫폼 시스템 알림
+      │   └── pre-commit-check.sh  # 커밋 전 안전 검사
       └── skills/
           ├── commit/SKILL.md      # /commit 스킬 정의
           ├── explain/SKILL.md     # /explain 스킬 정의
@@ -31,7 +32,7 @@ plugins/
 
 **스킬 구조:** 각 스킬은 `SKILL.md` 파일에 동작 규칙, 출력 형식, `allowed-tools`를 정의한다. Claude Code가 이 마크다운을 직접 해석하여 실행한다.
 
-**훅 구조:** `hooks.json`에 이벤트(stop, notification)별 스크립트를 매핑한다. `notify.sh`는 git remote URL에서 레포명을 추출하고, macOS/Windows/Linux 알림을 지원한다.
+**훅 구조:** `hooks.json`에 이벤트별 스크립트를 매핑한다. `notify.sh`는 git remote URL에서 레포명을 추출하고, macOS/Windows/Linux 알림을 지원한다. `pre-commit-check.sh`는 `PreToolUse` 이벤트로 `git commit` 명령을 가로채어 민감 정보, .env 파일, 충돌 마커, 대용량 파일을 검사하고 `--no-verify` 사용을 차단한다.
 
 ## 커밋 컨벤션
 
