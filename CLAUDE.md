@@ -22,6 +22,7 @@ plugins/
       └── skills/
           ├── commit/SKILL.md      # /commit 스킬 정의
           ├── explain/SKILL.md     # /explain 스킬 정의
+          ├── issue/SKILL.md       # /issue 스킬 정의
           ├── pr/SKILL.md          # /pr 스킬 정의
           └── squash/SKILL.md      # /squash 스킬 정의
 ```
