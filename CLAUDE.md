@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 프로젝트 개요
 
-Claude Code CLI용 플러그인/스킬 저장소. 개발 자동화 도구(커밋 생성, 변경사항 설명, 시스템 알림)를 제공한다.
+Claude Code CLI용 플러그인/스킬 저장소. 개발 자동화 도구(커밋 생성, 변경사항 설명, 디버그 로그 삽입, 시스템 알림)를 제공한다.
 
 빌드 시스템이나 테스트 프레임워크 없이, Markdown 스킬 정의 + Bash 스크립트 + JSON 설정으로 구성된 순수 설정 기반 프로젝트다.
 
@@ -22,6 +22,7 @@ plugins/
       │   └── pre-commit-check.sh  # 커밋 전 안전 검사
       └── skills/
           ├── commit/SKILL.md      # /commit 스킬 정의
+          ├── debug-log/SKILL.md   # /debug-log 스킬 정의
           ├── explain/SKILL.md     # /explain 스킬 정의
           ├── issue/SKILL.md       # /issue 스킬 정의
           ├── pr/SKILL.md          # /pr 스킬 정의
