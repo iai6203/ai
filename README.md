@@ -87,17 +87,39 @@ PreToolUse 훅은 `git commit` 명령 실행 전에 자동으로 트리거되며
 
 ### 플러그인 설치
 
-프로젝트의 `.claude/settings.json`에 플러그인 경로를 추가합니다.
+이 저장소를 클론합니다.
+
+```bash
+git clone https://github.com/iai6203/ai.git
+```
+
+아래 두 가지 방법 중 하나를 선택하여 플러그인을 등록합니다.
+
+#### 방법 1: 셸 alias 등록 (전역 적용)
+
+모든 프로젝트에서 플러그인을 사용하려면 셸 설정 파일(`.zshrc`, `.bashrc` 등)에 alias를 추가합니다.
+
+```bash
+alias claude="claude --plugin-dir /path/to/ai/plugins/devtools"
+```
+
+설정 후 셸을 재시작하거나 `source ~/.zshrc`를 실행합니다.
+
+#### 방법 2: 프로젝트별 설정
+
+특정 프로젝트에서만 플러그인을 사용하려면 해당 프로젝트의 `.claude/settings.json`에 플러그인 경로를 추가합니다.
 
 ```json
 {
   "plugins": [
-    "/path/to/this/repo/plugins/devtools"
+    "/path/to/ai/plugins/devtools"
   ]
 }
 ```
 
-플러그인을 설치하면 스킬과 훅이 함께 등록됩니다.
+### 설치 확인
 
-- 스킬: Claude Code에서 `/commit`, `/explain`, `/issue`, `/pr`, `/squash` 명령으로 호출
-- 훅: 작업 완료 및 HITL 대기 시 자동 실행
+플러그인이 정상적으로 등록되면 다음 기능을 사용할 수 있습니다.
+
+- 스킬: Claude Code에서 `/commit`, `/explain`, `/issue`, `/pr`, `/squash`, `/debug-log` 명령으로 호출
+- 훅: 커밋 전 안전 검사, 작업 완료 및 HITL 대기 시 알림 자동 실행
